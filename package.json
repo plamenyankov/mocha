@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "test": "./node_modules/.bin/mocha -R list -b"
   },
@@ -13,10 +12,11 @@
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-mocha": "^2.2.0",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "mocha":"*"
   },
   "testling": {
-    "harness":"mocha-bdd",
+    "harness": "mocha-bdd",
     "files": "test/*.js",
     "browsers": [
       "ie/6..latest",
