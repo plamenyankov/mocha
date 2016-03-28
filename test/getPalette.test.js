@@ -1,5 +1,8 @@
 var getPalette = require('../lib/getPalette');
-var assert = require('chai').assert;
+//var assert = require('chai').assert;
+//require('chai').should();
+var expect = require('chai').expect;
+
 var fs = require('fs');
 var configFile = process.cwd() + '/config.json';
 function writeConfig(config, callbak) {
@@ -18,6 +21,12 @@ describe('getPalette', function () {
         writeConfig(config, done)
     });
     it('Should trow an error if it is not an array', function (done) {
+        writeConfig({palette: "string"}, function (err) {
+            //assert.throws(getPalette, /is not an array/);
+            expect(getPalette).to.throw(/is not an array/);
+
+            done();
+        });
         //function fetch(){
         //    return "not an array";
         //}
@@ -25,17 +34,14 @@ describe('getPalette', function () {
         //    getPalette(fetch)
         //},/is not an array/
         //);
-
-        writeConfig({palette: "string"}, function (err) {
-            assert.throws(getPalette, /is not an array/);
-            done();
-        });
     });
-    it.only('should return an array with 3 items', function () {
+    it('should return an array with 3 items', function () {
         var palette = getPalette();
         //assert(Array.isArray(palette));
-        assert.isArray(palette,/did not return an array/);
+        //assert.isArray(palette,/did not return an array/);
         //assert.equal(palette.length, 3, "did not return 3");
-        assert.lengthOf(palette, 3, "did not return 3");
+        //assert.lengthOf(palette, 3, "did not return 3");
+        //palette.should.be.an('array').with.length(3);
+        expect(palette).to.be.an('array').with.length(3);
     })
 });
