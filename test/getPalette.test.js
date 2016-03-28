@@ -15,7 +15,6 @@ describe('getPalette', function () {
             config = JSON.parse(content.toString());
             done();
         });
-
     });
     afterEach(function (done) {
         writeConfig(config, done)
@@ -24,7 +23,6 @@ describe('getPalette', function () {
         writeConfig({palette: "string"}, function (err) {
             //assert.throws(getPalette, /is not an array/);
             expect(getPalette).to.throw(/is not an array/);
-
             done();
         });
         //function fetch(){
@@ -43,5 +41,5 @@ describe('getPalette', function () {
         //assert.lengthOf(palette, 3, "did not return 3");
         //palette.should.be.an('array').with.length(3);
         expect(palette).to.be.an('array').with.length(3);
-    })
+    });
 });

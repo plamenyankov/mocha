@@ -4,7 +4,7 @@
 var hex2rgb = require('../lib/hex2rgb');
 //var assert = require('chai').assert;
 var expect = require('chai').expect;
-describe('hex2rgb', function () {
+describe.only('hex2rgb', function () {
     it('Should trow an error if it is not a hex code', function (done) {
         hex2rgb('blue', function (error, result) {
             //assert(error);
